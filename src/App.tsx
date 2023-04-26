@@ -15,6 +15,7 @@ function App() {
     <Routes>
         <Route path="/" element={isLoggedIn ? <Navigate to="/main" /> : <div>NOT LOGGED IN</div>} />
         <Route path="/sign_in" element={isLoggedIn ? <div>TEST</div> : <Navigate to="/" />} />
+        <Route path="/tasks" element={isLoggedIn ? <>TASKS</> : <Navigate to="/"/> } />
     </Routes>
    </BrowserRouter>
   )
