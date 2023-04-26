@@ -15,7 +15,7 @@ function App() {
    <BrowserRouter>
     <Routes>
         <Route path="/" element={<StartingScreen />} />
-        <Route path="/sign_in" element={isLoggedIn ? <div>TEST</div> : <Navigate to="/" />} />
+        <Route path="/login" element={isLoggedIn ? <Navigate to="/tasks" /> : <div>TEST</div>} />
         <Route path="/tasks" element={isLoggedIn ? <>TASKS</> : <Navigate to="/"/> } />
     </Routes>
    </BrowserRouter>
