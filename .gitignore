@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Vite files and directories
+node_modules/
+dist/
+.cache/
+.history/
+.vite/
+.yarn/
+yarn.lock
+package-lock.json
