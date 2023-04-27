@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 type UserType = {
   name: string|undefined;
@@ -6,6 +7,7 @@ type UserType = {
 }
 
 export default function LoginForm(){
+  const navigate = useNavigate();
   const imgInputUrlRef = useRef<HTMLInputElement>(null)
   const nameInputRef = useRef<HTMLInputElement>(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -18,8 +20,10 @@ export default function LoginForm(){
       const newUser: UserType = { name, imageUrl};
       // store the user object in local storage
       localStorage.setItem('user', JSON.stringify(newUser));
+      navigate('.tasks');
     }else{
       console.log("NO IMAGE AND NAME");
+      // add error messages later
     }
   };
 
@@ -34,7 +38,6 @@ export default function LoginForm(){
       reader.onload = () => {
         const dataURL = reader.result as string;
         setImageUrl(dataURL);
-        console.log(localStorage.getItem('user'));
       };
     }
   };
