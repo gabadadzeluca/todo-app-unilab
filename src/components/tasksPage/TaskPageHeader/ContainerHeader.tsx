@@ -1,4 +1,4 @@
-import UserType from "../../../../utils/UserType";
+import UserType from "../../../utils/UserType";
 export default function ContainerHeader(props: UserType){
   const { name, imageUrl } = props;
   return (
