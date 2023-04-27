@@ -1,10 +1,6 @@
 import { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-
-type UserType = {
-  name: string|undefined;
-  imageUrl: string|undefined;
-}
+import UserType from '../../utils/UserType';
 
 export default function LoginForm(){
   const navigate = useNavigate();
