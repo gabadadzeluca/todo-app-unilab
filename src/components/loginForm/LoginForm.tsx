@@ -8,31 +8,36 @@ type UserType = {
 export default function LoginForm(){
   const imgInputUrlRef = useRef<HTMLInputElement>(null)
   const nameInputRef = useRef<HTMLInputElement>(null);
-  const [avatar, setAvatar] = useState<string | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [name, setName] = useState<string|null>(null);
-
 
   const handleSubmit = (e:React.MouseEvent):void => {
     e.preventDefault();
-    const imageUrl = imgInputUrlRef.current?.value;
-    const name = nameInputRef.current?.value;
-
-    // create a new user object with the input values
-    const newUser: UserType = { name, imageUrl };
-
-    // store the user object in local storage
-    localStorage.setItem('user', JSON.stringify(newUser));
+    if(imageUrl && name){
+      // create a new user object with the input values
+      const newUser: UserType = { name, imageUrl};
+      // store the user object in local storage
+      localStorage.setItem('user', JSON.stringify(newUser));
+    }else{
+      console.log("NO IMAGE AND NAME");
+    }
   };
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
     setName(e.target.value);
   }
   const handleAvatarChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if(e.target.files &&  e.target.files?.length > 0){
-      console.log(e.target.files[0]);
-      // convert image to save it
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        const dataURL = reader.result as string;
+        setImageUrl(dataURL);
+        console.log(localStorage.getItem('user'));
+      };
     }
-  }
+  };
 
 
   return (
