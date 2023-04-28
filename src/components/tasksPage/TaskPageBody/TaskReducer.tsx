@@ -3,6 +3,7 @@ import TaskInterface from "../../../utils/TaskInterface";
 const ACTIONS = {
   'ADD_TASK': 'ADD_TASK',
   'REMOVE_TASK': 'REMOVE_TASK',
+  'MARK_COMPLETED': 'MARK_COMPLETED'
 }
 
 interface AddTaskAction{
@@ -13,7 +14,11 @@ interface RemovTaskAction{
   type: typeof ACTIONS.REMOVE_TASK;
   payload: TaskInterface;
 }
-export type ActionType = AddTaskAction | RemovTaskAction
+interface markTaskCompletedAction{
+  type: typeof ACTIONS.MARK_COMPLETED;
+  payload: TaskInterface;
+}
+export type ActionType = AddTaskAction | RemovTaskAction | markTaskCompletedAction;
 
 const taskReducer = (state:TaskInterface[], action:ActionType) => {
   switch(action.type){
@@ -22,6 +27,15 @@ const taskReducer = (state:TaskInterface[], action:ActionType) => {
     case ACTIONS.REMOVE_TASK:
       const filteredTasks = state.filter((task) => task.created_at !== action.payload.created_at);
       return filteredTasks;
+    case ACTIONS.MARK_COMPLETED:
+      const updatedTasks = state.map((task) => {
+        if (task.created_at === action.payload.created_at) {
+          return { ...task, completed: true };
+        } else {
+          return task;
+        }
+      });
+      return updatedTasks;
     default : 
       throw new Error('Unrecognised action');
   }
