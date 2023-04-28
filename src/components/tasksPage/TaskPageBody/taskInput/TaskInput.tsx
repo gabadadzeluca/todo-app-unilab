@@ -1,8 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useReducer } from 'react';
 import TaskInterface from '../../../../utils/TaskInterface';
 
-
-export default function TaskInput(){
+export default function TaskInput(props:{
+  tasks: TaskInterface[];
+}){
   const taskInputRef = useRef<HTMLInputElement>(null);
 
   const handleTaskSubmit = (e: React.MouseEvent) => {
@@ -15,12 +16,14 @@ export default function TaskInput(){
   
     const newTask : TaskInterface = {
       body,
-      isCompleted: false
+      isCompleted: false,
+      created_at: new Date()
     };
     console.log("NEW TASK", newTask);
     // Clear the input field
     taskInput.value = '';
   };
+
   return(
     <form>
       <input 
