@@ -10,7 +10,7 @@ export default function TaskComponent(props:TaskPropsInterface){
   const deleteTask = (task:TaskInterface):void => {
     dispatch({type: ACTIONS.REMOVE_TASK, payload:task});
   }
-  const markCompleted = (task:TaskInterface):void => {
+  const markTaskCompleted = (task:TaskInterface):void => {
     dispatch({type: ACTIONS.MARK_COMPLETED, payload: task})
   }
   
@@ -20,9 +20,8 @@ export default function TaskComponent(props:TaskPropsInterface){
         {task.body}
       </p>
       <div>
-        {/* div for the buttons */}
-        <button>mark completed</button>
-        <button>delete</button>
+        <button onClick={()=>markTaskCompleted(task)}>mark completed</button>
+        <button onClick={()=>deleteTask(task)}>delete</button>
       </div>
     </div>
   );

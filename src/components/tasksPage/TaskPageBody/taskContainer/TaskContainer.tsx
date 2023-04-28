@@ -3,7 +3,8 @@ import ContainerHeader from "../../TaskPageHeader/ContainerHeader";
 import UserType from "../../../../utils/UserType";
 import TaskInterface from "../../../../utils/TaskInterface";
 import TaskInput from "../taskInput/TaskInput";
-import { taskReducer, ACTIONS } from "../TaskReducer";
+import { taskReducer } from "../TaskReducer";
+import TaskComponent from '../../task/TaskComponent';
 
 export default function TaskContainer(){
   const userString: string|null = localStorage.getItem('user');
@@ -26,7 +27,7 @@ export default function TaskContainer(){
       <ContainerHeader name={name} imageUrl={imageUrl}/>
       <TaskInput dispatch={dispatch} tasks={tasks}/>
       {tasks.map(task=>{
-        return <p>{task.body}</p>
+        return <TaskComponent task={task} dispatch={dispatch}/>
       })}
     </div>
   );
