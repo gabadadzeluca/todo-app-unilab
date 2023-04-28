@@ -8,11 +8,11 @@ const ACTIONS = {
 }
 
 interface AddTaskAction{
-  type: 'ADD_TASK';
+  type: typeof ACTIONS.ADD_TASK;
   payload: TaskInterface;
 }
 interface RemovTaskAction{
-  type: 'REMOVE_TASK';
+  type: typeof ACTIONS.REMOVE_TASK;
   payload: TaskInterface;
 }
 type ActionType = AddTaskAction | RemovTaskAction
@@ -30,8 +30,10 @@ const taskReducer = (state:TaskInterface[], action:ActionType) => {
 }
 
 export default function TaskInput(props:{
-  tasks: TaskInterface[];
+  tasksArray: TaskInterface[];
 }){
+  const tasksArray = props.tasksArray;
+  const [tasks, dispatch] = useReducer(taskReducer, tasksArray);
   const taskInputRef = useRef<HTMLInputElement>(null);
 
   const handleTaskSubmit = (e: React.MouseEvent) => {
@@ -47,11 +49,13 @@ export default function TaskInput(props:{
       isCompleted: false,
       created_at: new Date()
     };
-    console.log("NEW TASK", newTask);
+    // add a new task to tasks
+    dispatch({type:ACTIONS.ADD_TASK, payload:newTask});
     // Clear the input field
     taskInput.value = '';
   };
-
+  console.log("TASKS:", tasks);
+  
   return(
     <form>
       <input 
