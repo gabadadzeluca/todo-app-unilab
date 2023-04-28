@@ -1,39 +1,12 @@
-import { useRef, useReducer, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import TaskInterface from '../../../../utils/TaskInterface';
-
-
-const ACTIONS = {
-  'ADD_TASK': 'ADD_TASK',
-  'REMOVE_TASK': 'REMOVE_TASK',
-}
-
-interface AddTaskAction{
-  type: typeof ACTIONS.ADD_TASK;
-  payload: TaskInterface;
-}
-interface RemovTaskAction{
-  type: typeof ACTIONS.REMOVE_TASK;
-  payload: TaskInterface;
-}
-type ActionType = AddTaskAction | RemovTaskAction
-
-const taskReducer = (state:TaskInterface[], action:ActionType) => {
-  switch(action.type){
-    case ACTIONS.ADD_TASK:
-     return [...state, action.payload];
-    case ACTIONS.REMOVE_TASK:
-      const filteredTasks = state.filter((task) => task.created_at !== action.payload.created_at);
-      return filteredTasks;
-    default : 
-      throw new Error('Unrecognised action');
-  }
-}
+import { ACTIONS, ActionType} from '../TaskReducer'
 
 export default function TaskInput(props:{
-  tasksArray: TaskInterface[];
+  tasks: TaskInterface[]
+  dispatch: (action: ActionType) => void;
 }){
-  const tasksArray = props.tasksArray;
-  const [tasks, dispatch] = useReducer(taskReducer, tasksArray);
+  const { tasks, dispatch } = props;
   const taskInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(()=>{
