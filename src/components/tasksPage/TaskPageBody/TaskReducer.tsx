@@ -30,7 +30,8 @@ const taskReducer = (state:TaskInterface[], action:ActionType) => {
     case ACTIONS.MARK_COMPLETED:
       const updatedTasks = state.map((task) => {
         if (task.created_at === action.payload.created_at) {
-          return { ...task, completed: true };
+          console.log(task)
+          return { ...task, isCompleted: true };
         } else {
           return task;
         }
