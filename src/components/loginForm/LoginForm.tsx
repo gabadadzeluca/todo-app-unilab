@@ -2,13 +2,15 @@ import { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import UserType from '../../utils/UserType';
 
-export default function LoginForm(){
+export default function LoginForm(props:{
+  setIsLoggedIn: (isLoggedIn: boolean)=>void;
+}){
+  const setIsLoggedIn  = props.setIsLoggedIn;
   const navigate = useNavigate();
   const imgInputUrlRef = useRef<HTMLInputElement>(null)
   const nameInputRef = useRef<HTMLInputElement>(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [name, setName] = useState<string|null>(null);
-
   const handleSubmit = (e:React.MouseEvent):void => {
     e.preventDefault();
     if(imageUrl && name){
@@ -16,7 +18,8 @@ export default function LoginForm(){
       const newUser: UserType = { name, imageUrl};
       // store the user object in local storage
       localStorage.setItem('user', JSON.stringify(newUser));
-      navigate('.tasks');
+      setIsLoggedIn(true);
+      navigate(`/tasks`);
     }else{
       console.log("NO IMAGE AND NAME");
       // add error messages later
