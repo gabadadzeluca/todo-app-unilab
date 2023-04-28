@@ -1,4 +1,4 @@
-import { useRef, useReducer } from 'react';
+import { useRef, useReducer, useEffect } from 'react';
 import TaskInterface from '../../../../utils/TaskInterface';
 
 
@@ -36,6 +36,10 @@ export default function TaskInput(props:{
   const [tasks, dispatch] = useReducer(taskReducer, tasksArray);
   const taskInputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(()=>{
+    localStorage.setItem('tasks', JSON.stringify(tasks)); // update local storage
+  }, [tasks]);
+
   const handleTaskSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
     const taskInput = taskInputRef.current;
@@ -49,13 +53,12 @@ export default function TaskInput(props:{
       isCompleted: false,
       created_at: new Date()
     };
-    // add a new task to tasks
+    // append new task to the tasks
     dispatch({type:ACTIONS.ADD_TASK, payload:newTask});
     // Clear the input field
     taskInput.value = '';
   };
-  console.log("TASKS:", tasks);
-  
+
   return(
     <form>
       <input 
