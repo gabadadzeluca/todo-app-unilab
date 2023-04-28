@@ -13,7 +13,7 @@ interface RemovTaskAction{
   type: typeof ACTIONS.REMOVE_TASK;
   payload: TaskInterface;
 }
-type ActionType = AddTaskAction | RemovTaskAction
+export type ActionType = AddTaskAction | RemovTaskAction
 
 const taskReducer = (state:TaskInterface[], action:ActionType) => {
   switch(action.type){
