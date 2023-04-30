@@ -1,8 +1,7 @@
 .startingScreenContainer{
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  background-color: var(--black);
+  height: 100%;
   color: var(--white);
 }
 .startingScreenDiv{
@@ -33,7 +32,7 @@
   background-color: var(--light-green);
   border-radius: 0.4rem;
   border: none;
-  cursor: pointer;;
+  cursor: pointer;
 }
 
 .startingScreenDiv>button:hover{
