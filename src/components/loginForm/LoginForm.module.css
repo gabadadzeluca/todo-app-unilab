@@ -1,9 +1,9 @@
 .loginForm{
   background-color: var(--white);
-  width: 50%;
+  width: 45%;
   height: 85%;
   min-width: 25rem;
-  max-width: 60rem;
+  max-width: 58rem;
   display: flex;
   flex-direction: column;
   align-items: center;
