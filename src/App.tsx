@@ -9,19 +9,22 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(localStorage.getItem('user') !== null);
   console.log("IS LOGGED IN:", isLoggedIn);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<StartingScreen />} />
-        <Route path="/login" element={
-          isLoggedIn ? 
-            <Navigate to="/tasks" />
-              : 
-            <LoginForm setIsLoggedIn={setIsLoggedIn} /> 
-          } 
-        />
-        <Route path="/tasks" element={isLoggedIn ? <TaskContainer /> : <Navigate to="/"/>} />
-      </Routes>
-    </BrowserRouter>
+    <div className='Container'>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<StartingScreen />} />
+          <Route path="/login" element={
+            isLoggedIn ? 
+              <Navigate to="/tasks" />
+                : 
+              <LoginForm setIsLoggedIn={setIsLoggedIn} /> 
+            } 
+          />
+          <Route path="/tasks" element={isLoggedIn ? <TaskContainer /> : <Navigate to="/"/>} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+
   )
 }
 
