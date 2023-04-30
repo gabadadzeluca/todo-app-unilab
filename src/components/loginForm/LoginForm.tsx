@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import UserType from '../../utils/UserType';
+import styles from "./LoginForm.module.css";
 
 export default function LoginForm(props:{
   setIsLoggedIn: (isLoggedIn: boolean)=>void;
@@ -43,27 +44,36 @@ export default function LoginForm(props:{
 
 
   return (
-    <form>
+    <form className={styles.loginForm}>
       <h3>Get Started</h3>
-      <div>
+      <div className={styles.imgInputDiv}>
         <label htmlFor="imgInput">add a photo</label>
         <input 
+          className={styles.imgInput}
           type="file" 
           id="imgInput"
           ref={imgInputUrlRef} 
           onChange={handleAvatarChange}
         />
       </div>
-      <div>
+      <div className={styles.nameInputDiv}>
         <label htmlFor="nameInput">fill in your name</label>
         <input 
+          className={styles.nameInput}
           type="text" 
           id="nameInput" 
           ref={nameInputRef} 
           onChange={handleNameChange}
+          placeholder='your name'
         />
       </div>
-      <button type="submit" onClick={handleSubmit}>Sign In</button>
+      <button 
+        className={styles.signInBtn}
+        type="submit" 
+        onClick={handleSubmit}
+      >
+        Sign In
+      </button>
     </form>
   );
 }
