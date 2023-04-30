@@ -1,0 +1,110 @@
+.loginForm{
+  background-color: var(--white);
+  width: 50%;
+  height: 85%;
+  min-width: 25rem;
+  max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 0.4rem;
+  padding: 2rem 5rem;
+  text-align: center;
+}
+
+.loginForm>h3{
+  font-size: 2.3rem;
+}
+
+.imgInputDiv, .nameInputDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 1.4rem;
+}
+
+.imgInput::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.imgInput{
+  background-image: url('../../assets/add-photo-icon.svg');
+  background-position: center;
+  width: 10rem;
+  height: 10rem;
+  background-color: var(--light-gray);
+  border-radius: 50%;
+}
+.imgInput:hover{
+  background-color: var(--light-green);
+}
+
+.nameInput{
+  border: none;
+  border-radius: 0.4rem;
+  font-family: inherit;
+  width: 100%;
+  font-size: 1.4rem;
+  background-color: var(--light-gray);
+  padding: 0.5rem 1.5rem;
+}
+.nameInput:focus{
+  outline: none;
+}
+
+.nameInput, .imgInput{
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.signInBtn{
+  font-size: 1.6rem;
+  font-family: inherit;
+  color: var(--black);
+  font-weight: inherit;
+  padding: 1.5rem 4rem;
+  background-color: var(--light-green);
+  border-radius: 0.4rem;
+  border: none;
+  cursor: pointer;
+}
+.signInBtn:hover{
+  background-color: var(--black);
+  color: var(--white);
+}
+
+@media screen and (min-width: 750px) {
+  .loginForm>h3{
+    font-size: 3.5rem;
+  }
+  .nameInputDiv, .imgInputDiv{
+    font-size: 2rem;
+  }
+  .nameInput{
+    font-size: 2rem;
+    padding: 1.5rem 2rem;
+  }
+  .nameInput, .imgInput{
+    margin-top: 2rem;
+  }  
+  .signInBtn{
+    font-size: 2.5rem;
+    padding: 1.5rem 5rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .nameInputDiv, .imgInputDiv{
+    font-size: 2.2rem;
+  }
+  .nameInput{
+    padding: 1.5rem 2.5rem;
+    font-size: 2.2rem;
+  }
+  .signInBtn{
+    font-size: 3.2rem;
+    padding: 1.5rem 7.7rem;
+  }
+}
