@@ -26,6 +26,7 @@ export default function TaskContainer(){
   return (
     <div className={styles.taskContainer}>
       <ContainerHeader name={name} imageUrl={imageUrl}/>
+      <h3>Add your daily tasks</h3>
       <TaskInput dispatch={dispatch} tasks={tasks}/>
       <div className={styles.taskDiv}>
         {tasks.map(task=>{
