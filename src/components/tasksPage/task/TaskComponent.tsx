@@ -1,5 +1,6 @@
 import TaskInterface from "../../../utils/TaskInterface";
 import { ACTIONS, ActionType } from "../TaskPageBody/TaskReducer";
+import styles from "./TaskComponent.module.css";
 
 interface TaskPropsInterface{
   task: TaskInterface;
@@ -13,15 +14,23 @@ export default function TaskComponent(props:TaskPropsInterface){
   const markTaskCompleted = (task:TaskInterface):void => {
     dispatch({type: ACTIONS.MARK_COMPLETED, payload: task})
   }
-  
+  const isCompleted = task.isCompleted;
   return (
-    <div>
-      <p>
+    <div className={`${styles.task} ${isCompleted? styles.completed : '' }`}>
+      <p className={styles.taskBody}>
         {task.body}
       </p>
-      <div>
-        <button onClick={()=>markTaskCompleted(task)}>mark completed</button>
-        <button onClick={()=>deleteTask(task)}>delete</button>
+      <div className={styles.taskButtonsDiv}>
+        <button 
+          onClick={()=>markTaskCompleted(task)}
+          className={styles.markCompletedBtn}
+        >
+        </button>
+        <button 
+          onClick={()=>deleteTask(task)}
+          className={styles.deleteBtn}
+        >
+        </button>
       </div>
     </div>
   );
