@@ -5,6 +5,7 @@ import TaskInterface from "../../../../utils/TaskInterface";
 import TaskInput from "../taskInput/TaskInput";
 import { taskReducer } from "../TaskReducer";
 import TaskComponent from '../../task/TaskComponent';
+import styles from "./TaskContainer.module.css";
 
 export default function TaskContainer(){
   const userString: string|null = localStorage.getItem('user');
@@ -23,12 +24,14 @@ export default function TaskContainer(){
   const [tasks, dispatch] = useReducer(taskReducer, tasksArray);
 
   return (
-    <div>
+    <div className={styles.taskContainer}>
       <ContainerHeader name={name} imageUrl={imageUrl}/>
       <TaskInput dispatch={dispatch} tasks={tasks}/>
-      {tasks.map(task=>{
-        return <TaskComponent task={task} dispatch={dispatch}/>
-      })}
+      <div className={styles.taskDiv}>
+        {tasks.map(task=>{
+          return <TaskComponent task={task} dispatch={dispatch}/>
+        })}
+      </div>
     </div>
   );
 }
