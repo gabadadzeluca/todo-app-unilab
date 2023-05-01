@@ -1,0 +1,50 @@
+.taskInputForm{
+  width: 45%;
+  min-width: 30rem;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.taskInput{
+  width: 80%;
+  border: none;
+  background-color: var(--light-gray);
+  padding: 1.5rem 2rem;
+}
+.taskInput:focus{
+  outline: none;
+}
+
+.taskInput,.submitBtn{
+  border: none;
+  cursor: pointer;
+  border-radius: 0.4rem;
+}
+.submitBtn{
+  padding: 1.6rem 2.2rem;
+  background-color: var(--light-green);
+  font-family: inherit;
+}
+.submitBtn:hover{
+  background-color: var(--black);
+  color: var(--white);
+}
+
+
+@media screen and (min-width: 750px) {
+  .taskInput{
+    font-size: 1.8rem;
+  }
+  .submitBtn{
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .taskInput{
+    font-size: 2.2rem;
+  }
+  .submitBtn{
+    font-size: 3.2rem ;
+  }
+}
