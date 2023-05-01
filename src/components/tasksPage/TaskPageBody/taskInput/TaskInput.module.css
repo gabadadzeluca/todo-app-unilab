@@ -1,4 +1,5 @@
 .taskInputForm{
+  margin-top: 5rem;
   width: 45%;
   min-width: 30rem;
   display: inline-flex;
@@ -19,6 +20,7 @@
   border: none;
   cursor: pointer;
   border-radius: 0.4rem;
+  margin-bottom: 5rem;
 }
 .submitBtn{
   padding: 1.6rem 2.2rem;
