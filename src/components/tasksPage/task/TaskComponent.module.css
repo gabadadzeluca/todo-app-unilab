@@ -1,0 +1,68 @@
+.task{
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--white);
+  background-color: var(--black);
+  border-radius: 0.4rem;
+  min-height: 4rem;
+  margin-top: 1rem;
+  font-size: 1.6rem;
+}
+.task>p{
+  padding-left: 1rem;
+  font-size: 1.8rem;
+}
+
+.taskButtonsDiv{
+  width: 7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.deleteBtn, .markCompletedBtn{
+  border: none;
+  background-color: transparent;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-position: center;
+  cursor: pointer;
+}
+.markCompletedBtn:hover{
+  background-color: var(--light-green);
+}
+.deleteBtn:hover{
+  background-color: var(--red);
+}
+
+.deleteBtn{
+  background-image: url("../../../assets/delete-icon.svg");
+}
+
+.markCompletedBtn{
+  background-image: url("../../../assets/mark-completed-icon.svg");
+}
+
+.task.completed{
+  opacity: 0.12;
+}
+
+@media screen and (min-width: 750px) {
+  .task>p{
+    font-size: 2rem;
+  }
+  .taskButtonsDiv{
+    width: 8rem;
+  }
+  .deleteBtn, .markCompletedBtn{
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .task>p{
+    font-size: 2.2rem;
+  }
+}
