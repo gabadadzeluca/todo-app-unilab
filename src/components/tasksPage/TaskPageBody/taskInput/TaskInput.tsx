@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react';
 import TaskInterface from '../../../../utils/TaskInterface';
 import { ACTIONS, ActionType} from '../TaskReducer'
+import styles from './TaskInput.module.css';
 
 export default function TaskInput(props:{
   tasks: TaskInterface[]
@@ -33,14 +34,17 @@ export default function TaskInput(props:{
   };
 
   return(
-    <form>
+    <form className={styles.taskInputForm}>
       <input 
         ref={taskInputRef}
         type="text"
+        className={styles.taskInput}
+        placeholder='my task'
       />
       <button 
         type="submit"
-        onClick={handleTaskSubmit}
+        onClick={handleTaskSubmit}        
+        className={styles.submitBtn}
       >
         Add
       </button>
