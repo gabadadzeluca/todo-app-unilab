@@ -1,0 +1,57 @@
+.containerHeader{
+  background-color: var(--black);
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  color: var(--white);
+}
+.containerHeader>h3{
+  font-size: 2.6rem;
+  font-weight: var(--very-bold);
+  text-transform: uppercase;
+  min-width: 10rem;
+}
+
+.userDiv{
+  height: 10rem;
+  display: inline-flex;
+  align-items: center;
+}
+.userDiv>p{
+  font-size: 1.3rem;
+  margin-right: 1.5rem;
+}
+.profilePic{
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 750px) {
+  .containerHeader>h3{
+    font-size: 3rem;
+  }
+  .userDiv>p{
+    font-size: 1.8rem;
+  }
+  .profilePic{
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .containerHeader>h3{
+    font-size: 3.6rem;
+  }
+  .userDiv>p{
+    font-size: 2.2rem;
+  }
+  .profilePic{
+    width: 6.8rem;
+    height: 6.8rem;
+  }
+}
