@@ -1,7 +1,7 @@
 .loginForm{
   background-color: var(--white);
-  width: 45%;
-  height: 85%;
+  width: 60%;
+  height: 80%;
   min-width: 25rem;
   max-width: 58rem;
   display: flex;
@@ -76,6 +76,10 @@
 }
 
 @media screen and (min-width: 750px) {
+  .loginForm{
+    height: 85%;
+    width: 45%;
+  }
   .loginForm>h3{
     font-size: 3.5rem;
   }
