@@ -1,0 +1,18 @@
+.error{
+  color: rgb(230, 29, 29);
+  font-size: 1rem;
+  font-weight: var(--medium);
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 750px) {
+  .error{
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+  }  
+}
+@media screen and (min-width: 1400px) {
+  .error{
+    font-size: 2rem;
+  }  
+}
