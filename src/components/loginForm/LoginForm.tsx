@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import UserType from '../../utils/UserType';
 import styles from "./LoginForm.module.css";
+import Error from './error/ErrorComponent';
 
 export default function LoginForm(props:{
   setIsLoggedIn: (isLoggedIn: boolean)=>void;
@@ -12,8 +13,12 @@ export default function LoginForm(props:{
   const nameInputRef = useRef<HTMLInputElement>(null);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [name, setName] = useState<string|null>(null);
+  const [showError, setShowError] = useState<boolean>(false);
+
+
   const handleSubmit = (e:React.MouseEvent):void => {
     e.preventDefault();
+    setShowError(true);
     if(imageUrl && name){
       // create a new user object with the input values
       const newUser: UserType = { name, imageUrl};
@@ -28,7 +33,9 @@ export default function LoginForm(props:{
   };
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>):void => {
-    setName(e.target.value);
+    let value = e.target.value;
+    value = value.replace(/[^a-zA-Z\s]/g, '');
+    setName(value);
   }
   const handleAvatarChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -55,6 +62,11 @@ export default function LoginForm(props:{
           ref={imgInputUrlRef} 
           onChange={handleAvatarChange}
         />
+         <Error 
+          condition={imageUrl == '' || imageUrl == null}
+          message={'Image is required'}
+          show={showError}
+        />
       </div>
       <div className={styles.nameInputDiv}>
         <label htmlFor="nameInput">fill in your name</label>
@@ -65,6 +77,12 @@ export default function LoginForm(props:{
           ref={nameInputRef} 
           onChange={handleNameChange}
           placeholder='your name'
+          value={name || ''}
+        />
+        <Error 
+          condition={name == '' || name == null}
+          message={'Name must not be empty'}
+          show={showError}
         />
       </div>
       <button 
