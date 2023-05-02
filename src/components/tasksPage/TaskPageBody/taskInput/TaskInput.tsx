@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import TaskInterface from '../../../../utils/TaskInterface';
-import { ACTIONS, ActionType} from '../TaskReducer'
+import { ACTIONS, ActionType} from '../../../../utils/TaskReducer'
 import styles from './TaskInput.module.css';
 
 export default function TaskInput(props:{

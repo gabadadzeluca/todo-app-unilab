@@ -1,5 +1,5 @@
 import TaskInterface from "../../../utils/TaskInterface";
-import { ACTIONS, ActionType } from "../TaskPageBody/TaskReducer";
+import { ACTIONS, ActionType } from "../../../utils/TaskReducer";
 import styles from "./TaskComponent.module.css";
 
 interface TaskPropsInterface{

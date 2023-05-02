@@ -3,7 +3,7 @@ import ContainerHeader from "../../TaskPageHeader/ContainerHeader";
 import UserType from "../../../../utils/UserType";
 import TaskInterface from "../../../../utils/TaskInterface";
 import TaskInput from "../taskInput/TaskInput";
-import { taskReducer } from "../TaskReducer";
+import { taskReducer } from "../../../../utils/TaskReducer";
 import TaskComponent from '../../task/TaskComponent';
 import styles from "./TaskContainer.module.css";
 
