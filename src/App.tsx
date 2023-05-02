@@ -10,7 +10,7 @@ function App() {
   console.log("IS LOGGED IN:", isLoggedIn);
   return (
     <div className='Container'>
-      <BrowserRouter>
+      <BrowserRouter basename='/todo-app-unilab/'>
         <Routes>
           <Route path="/" element={<StartingScreen />} />
           <Route path="/login" element={
