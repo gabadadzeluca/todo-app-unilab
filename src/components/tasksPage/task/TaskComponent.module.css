@@ -7,7 +7,7 @@
   background-color: var(--black);
   border-radius: 0.4rem;
   min-height: 4rem;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   font-size: 1.6rem;
 }
 .task>p{
