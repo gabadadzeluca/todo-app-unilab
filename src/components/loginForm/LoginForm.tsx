@@ -28,7 +28,6 @@ export default function LoginForm(props:{
       navigate(`/tasks`);
     }else{
       console.log("NO IMAGE AND NAME");
-      // add error messages later
     }
   };
 
