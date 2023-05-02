@@ -42,11 +42,18 @@
   }
 }
 
+/* querry for button, so it stays exactly near the input field */
+@media screen and (min-width: 1050px) {
+  .submitBtn{
+    width: 20%;
+  }
+}
+
 @media screen and (min-width: 1400px) {
   .taskInput{
     font-size: 2.2rem;
   }
   .submitBtn{
-    font-size: 3.2rem ;
+    font-size: 3.2rem;
   }
 }
