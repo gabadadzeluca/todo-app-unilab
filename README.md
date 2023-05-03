@@ -1,6 +1,6 @@
 # Todo-App
 
-![Screenshot](./src/assets/screenshot.png);
+![Screenshot](./src/assets/screenshot.png)
 
 This is a simple todo application built with 
 - React & TypeScript.
@@ -14,7 +14,7 @@ To install and run the application, you can use the following commands:
 git clone <repo-url>
 cd todo-app
 npm install
-npm start
+npm run dev
 ```
 
 
