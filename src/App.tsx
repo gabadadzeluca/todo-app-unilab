@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate, HashRouter } from 'react-router-dom';
 import './App.css'
 import { useState } from 'react';
 import StartingScreen from './components/startingScreen/StartingScreen';
@@ -10,7 +10,7 @@ function App() {
   console.log("IS LOGGED IN:", isLoggedIn);
   return (
     <div className='Container'>
-      <BrowserRouter basename='/todo-app-unilab/'>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<StartingScreen />} />
           <Route path="/login" element={
@@ -22,7 +22,7 @@ function App() {
           />
           <Route path="/tasks" element={isLoggedIn ? <TaskContainer /> : <Navigate to="/"/>} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   )
 }
