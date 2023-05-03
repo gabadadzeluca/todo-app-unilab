@@ -2,9 +2,16 @@
 
 ![Screenshot](./src/assets/screenshot.png)
 
-This is a simple todo application built with 
-- React & TypeScript.
+This is a simple todo application 
 It allows users to create, and delete tasks, as well as mark them as completed. 
+
+
+## Built with
+
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [TypeScript](https://typescriptlang.org/) 
+- React Router
 
 ## Installation
 
